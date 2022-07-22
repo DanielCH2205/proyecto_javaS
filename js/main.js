@@ -1,22 +1,27 @@
 
+const carrito = [];
 
-
-alert("A continuacion se le pediran 4 notas para calcular su promedio, si el promedio esta arriba de 3.0 pasas, si sacas de 2.9 para abajo repruebas");
-
-function calcularPromedio (){
-    let primerNumero = parseInt(prompt("ingrese el primero numero"));
-    let segundoNumero = parseInt(prompt("ingrese el segundo numero"));
-    let tercerNumero = parseInt(prompt("ingrese el tercer numero"));
-    let cuartoNumero = parseInt(prompt("ingrese el cuarto numero"));
-    let resultado = (primerNumero + segundoNumero + tercerNumero + cuartoNumero)/4;
-    alert(resultado);
-    if (resultado >= 30){
-        alert("Re crack, aprobaste");
-    }
-    else{(resultado <= 29)
-        alert("f manito reprobaste");
-    }
+function agregarAlCarrito(producto) {
+    carrito.push(producto);
+    console.log(carrito);
 }
 
-calcularPromedio()
+agregarAlCarrito({id: 112, name:"Chanclas Adidas", price: 150.000});
+agregarAlCarrito({id: 113, name:"Camiseta Nike", price: 170.000});
+agregarAlCarrito({id: 114, name:"Sudadera Reebok", price: 400.000});
+agregarAlCarrito({id: 115, name:"Tennis New Balance", price: 350.000});
+agregarAlCarrito({id: 116, name:"Esqueleto Nike", price: 185.000});
+agregarAlCarrito({id: 117, name:"Pantalon Sudadera Puma", price: 140.000});
+agregarAlCarrito({id: 118, name:"Guantes de Boxeo Everlast", price: 450.000});
+agregarAlCarrito({id: 119, name:"Pantaloneta Nike Negra", price: 135.000});
 
+
+
+function borrarProducto(idproducto){
+    const index = carrito.findIndex((producto) => producto.id === idproducto);
+    carrito.splice(index, 1);
+    console.log(carrito);
+}
+
+borrarProducto(112);
+borrarProducto(113);
